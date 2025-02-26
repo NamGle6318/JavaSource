@@ -8,8 +8,8 @@ public class VarIntEx1 {
     //변수의 기본타입 : 정수, 실수, 문자, 불린
     //변수선언 : 변수의 기본 타입 변수값 = 값;
     //정수형 : byte short "int" "long"
-    //실수형 : char
-    //문자형 : float double
+    //문자형 : char
+    //실수형 : float double
     //불린형 : boolean
 
     //변수명을 지을때 

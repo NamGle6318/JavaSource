@@ -17,7 +17,7 @@ public class IncDecOperEx1 {
         
         int num2 = 20;
         //++num2
-        //① num2_1을 먼저 한 후 사용
+        //① num2-1을 먼저 한 후 사용
         //num2++
         //① num2를 사용
         //② num2값을 ++
@@ -26,7 +26,6 @@ public class IncDecOperEx1 {
     System.out.println("num2 = " + (++num2));
     System.out.println("num2 = " + (num2++)); 
     System.out.println("num2 = " + num2);
-
     
  }   
 }

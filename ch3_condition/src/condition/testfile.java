@@ -23,7 +23,7 @@ public class testfile {
         }
         int sum = (int)ch;
         System.out.println(ch);
-        result = result + sum;
+        result = sum;
 
         //
 
@@ -37,7 +37,7 @@ public class testfile {
         }
         sum = (int)ch;
         System.out.println(ch);
-        result = result + sum;
+        result = sum;
 
         System.out.println("두 수의 합 : " + result);
         

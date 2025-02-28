@@ -17,5 +17,13 @@ public class forEx2 {
         for (int i = 2; i < 11; i += 2) {
             System.out.print(i + "   ");
         }
+
+
+        //for 문 안에 조건식을 공백으로 채워도 됨. (무한루프 주의)
+        // int i = 0;
+        // for (; ;) {
+        //     System.out.println("test");
+        //     break;
+        // }
     }
 }

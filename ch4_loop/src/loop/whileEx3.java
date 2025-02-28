@@ -2,7 +2,7 @@ package loop;
 
 // 구구단을 외자 (7단만)
 
-public class whileEx4 {
+public class whileEx3 {
     public static void main(String[] args) {
 
         // for (int i = 1; i < 10; i++) {

@@ -4,6 +4,8 @@ package loop;
 
 public class whileEx2 {
     public static void main(String[] args) {
+        
+        // for문으로 작성했던 프로그램 while문으로 대체
         // for (int i = 1; i < 11; i++) {
         //     if (i % 2 == 0) {
         //         System.out.print(i + "   ");

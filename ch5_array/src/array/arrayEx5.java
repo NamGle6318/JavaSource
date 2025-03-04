@@ -34,5 +34,6 @@ public class arrayEx5 {
         System.out.println(db.length);
         System.out.println(Arrays.toString(db)); // db라는 배열의 값을 출력
         System.out.println(db); // db라는 배열명의 주소값을 출력
+
     }
 }

@@ -10,22 +10,17 @@ public class arrayEx3 {
         int score[] = new int[5];
 
         Scanner sc = new Scanner(System.in);
-        // System.out.println("첫 번째 학생 점수 입력");
-        // score[0] = sc.nextInt();
-        // System.out.println("두 번째 학생 점수 입력");
-        // score[1] = sc.nextInt();
-        // System.out.println("세 번째 학생 점수 입력");
-        // score[2] = sc.nextInt();
-        // System.out.println("네 번째 학생 점수 입력");
-        // score[3] = sc.nextInt();
-        // System.out.println("다섯 번째 학생 점수 입력");
-        // score[4] = sc.nextInt();
 
         for (int i = 0; i < score.length; i++) {
             sc = new Scanner(System.in);
             System.out.printf("%d번째 학생 점수 입력 : ", (i + 1));
             score[i] = sc.nextInt();
         }
+
+        // for (int i : score) {
+        // // System.out.printf("%d번째 학생 점수 입력 : ", i + 1);
+        // score[i] = sc.nextInt();
+        // }
 
         System.out.println(Arrays.toString(score));
 
@@ -34,6 +29,9 @@ public class arrayEx3 {
         for (int i = 0; i < score.length; i++) {
             sum += score[i];
         }
+        // for (int i : score) {
+        // sum += score[i];
+        // }
         System.out.printf(" 총합 : %d\n 평균 : %.2f", sum, (float) sum / score.length);
     }
 }

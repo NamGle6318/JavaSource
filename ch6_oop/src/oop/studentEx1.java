@@ -9,6 +9,8 @@ public class studentEx1 {
         Student student2 = new Student(1, 5);
         Student student3 = new Student("23-71301613", "정현우", 1, 3, "010-1234-5678", "abc123@gmail.com");
 
+        student3.changePhone("010-8765-4321");
+
         System.out.println(student1);
         System.out.println(student2);
         System.out.println(student3);

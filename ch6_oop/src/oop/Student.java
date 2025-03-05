@@ -21,29 +21,32 @@ public class Student {
     // int inputNum;
 
     // 기능
-    // void changePhone() {
-    // inputStr = scanner.nextLine();
-    // System.out.println("입력하세요.");
-    // phone = inputStr;
-    // }
+    // 메소드 : 리턴타입 메소드명() {}
+    // 리턴(반환) 타입 : 기본타입, 객체(대문자로 시작하는 String 등), 배열, void(리턴타입 없음)
+    void changePhone(String phone) { // 전화번호 변경(String)
+        this.phone = phone;
 
-    // void changeEmail() {
-    // inputStr = scanner.nextLine();
-    // System.out.println("입력하세요.");
-    // email = inputStr;
-    // }
+        // return this.phone; // this. 는 멤버변수, 멤버메서드 앞에만 붙히기
+    }
 
-    // void changeGrade() {
-    // inputNum = scanner.nextInt();
-    // System.out.println("입력하세요.");
-    // grade = inputNum;
-    // }
+    void changeEmail(String email) { // 이메일 변경(String)
+        this.email = email;
 
-    // void changeClassNumber() {
-    // inputNum = scanner.nextInt();
-    // System.out.println("입력하세요.");
-    // classNumber = inputNum;
-    // }
+        // return " ";
+    }
+
+    void changeGrade(int grade) {// 학년변경(int)
+
+        this.grade = grade;
+
+        // return this.grade;
+    }
+
+    void changeClassNumber(int classNumber) {// 반 변경(int)
+        this.classNumber = classNumber;
+
+        // return this.classNumber;
+    }
 
     @Override
     public String toString() {
@@ -79,5 +82,4 @@ public class Student {
         this.grade = grade;
         this.classNumber = classNumber;
     }
-
 }

@@ -12,7 +12,8 @@ public class Square {
 
     // 면적을 구하는 메서드
 
-    // 생성자
+    // 생성자 = 메서드는 아님
+    // 1. void 같은 타입이 없음
     public Square(int sideLength) {
         this.sideLength = sideLength;
     }

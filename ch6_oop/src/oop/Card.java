@@ -20,4 +20,6 @@ public class Card {
     static int width = 100;
     static int height = 250;
 
+    // 조건문 이런건 메서드 내부에서는 가능하나 메서드 외부&클래스 내부에서는 사용이 불가능함.
+    // 생성자 내부에선 가능
 }

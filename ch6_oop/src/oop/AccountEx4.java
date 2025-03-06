@@ -124,10 +124,10 @@ public class AccountEx4 {
 
         for (int i = 0; i < account.length; i++) {
 
+            if (account[i].getAno() == null)
+                break;
             if (ano.equals(account[i].getAno()))
                 return account[i];
-            // if (account[i].getAno() == null)
-            // return null;
 
         }
         return null;

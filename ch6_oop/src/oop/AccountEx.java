@@ -6,8 +6,8 @@ public class AccountEx {
 
         account.deposit(10000000);
 
-        account.withraw(1234567);
-        System.out.println(account.balance);
-        System.out.println(account);
+        account.withdraw(1234567);
+        System.out.println(account.getBalance());
+
     }
 }

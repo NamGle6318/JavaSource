@@ -6,18 +6,34 @@ public class Account {
     // 기능 : 예금하다, 출금하다
 
     // 속성 선언
-    String ano;
-    String owner;
-    long balance;
+    private String ano;
+    private String owner;
+    private long balance;
 
     // 예금
-    long deposit(long balance) {
-        return this.balance += balance;
+    void deposit(long balance) {
+        this.balance += balance;
     }
 
     // 출금
-    long withraw(long balance) {
-        return this.balance -= balance;
+    void withdraw(long balance) {
+        if (balance > this.balance) {
+            return;
+        } else {
+            this.balance -= balance;
+        }
+    }
+
+    public String getAno() {
+        return ano;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public long getBalance() {
+        return balance;
     }
 
     // 생성자(default, 멤버변수 3개다)

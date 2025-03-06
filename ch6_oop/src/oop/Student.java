@@ -9,12 +9,12 @@ public class Student {
     // 메소드 : 전화번호를 변경, 이메일을 변경, 학년을 변경, 반을 변경
 
     // 속성
-    String stuId = "Null"; // 학번
-    String name = "Null"; // 이름
-    int grade = 0; // 학년
-    int classNumber = 0; // 반
-    String phone = "Null"; // 전화번호
-    String email = "Null"; // 이메일
+    private String stuId = "Null"; // 학번
+    private String name = "Null"; // 이름
+    private int grade = 0; // 학년
+    private int classNumber = 0; // 반
+    private String phone = "Null"; // 전화번호
+    private String email = "Null"; // 이메일
 
     // Scanner scanner = new Scanner(System.in);
     // String inputStr;
@@ -48,6 +48,30 @@ public class Student {
         // return this.classNumber;
     }
 
+    public String getStuId() {
+        return stuId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getGrade() {
+        return grade;
+    }
+
+    public int getClassNumber() {
+        return classNumber;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
     @Override
     public String toString() {
         return "student [stuId=" + stuId +
@@ -69,8 +93,10 @@ public class Student {
     // this. = 객체 자신
     // 지역변수 갖고온걸 this.객체자신에 넣어달라
 
+    // 생성자 오버로딩
     public Student(String stuId, String name, int grade, int classNumber, String phone, String email) {
         // 생성자의 목적 : 멤버 변수 초기화
+        this.stuId = stuId;
         this.name = name;
         this.grade = grade;
         this.classNumber = classNumber;

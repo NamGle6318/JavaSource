@@ -127,4 +127,4 @@ public class AccountEx3 {
         return null;
     }
 }
-// nullpointexception = null 값을 가진 대상을 호출할 경우
+// nullpointexception = null 값을 가진 ?을 호출할 경우 발생

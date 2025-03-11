@@ -4,26 +4,26 @@ import java.util.Scanner;
 
 public class Myshop implements Ishop {
     private String title;
-    private User[] users = new User[5];
-    private Product[] products = new Product[10];
-    private Product[] cart = new Product[10];
+    private User[] users = new User[5]; // 여러개의 user를 저장(유저 목록을 출력할때 사용)
+    private Product[] products = new Product[10]; // 여러개의 product를 저장 (제품 목록을 출력할때 사용)
+    private Product[] cart = new Product[10]; // 구매를 결정한 제품들을 보관하는 배열
     private String userName;
     private int cartCount = 0;
     Scanner sc = new Scanner(System.in);
 
     @Override
-    public void setTitle(String title) { // 상점 이름 설정
+    public void setTitle(String title) {
         this.title = title;
     }
 
     @Override
-    public void genUser() { // 유저 생성
+    public void genUser() {
         users[0] = new User("망아지", PayType.CASH);
         users[1] = new User("송아지", PayType.CARD);
     }
 
     @Override
-    public void genProduct() { // 제품 생성
+    public void genProduct() {
         products[0] = new Tv("Super ultra Tv", 10000000, "1024K");
         products[1] = new Tv("ultra super Tv", 1000000, "512K");
         products[2] = new CellPhone("알뜰폰", 50000, "SKT");
@@ -32,7 +32,7 @@ public class Myshop implements Ishop {
     }
 
     @Override
-    public void start() { // 상점 시작
+    public void start() {
         String input;
         int num = 0;
         int i = 0;
@@ -47,11 +47,9 @@ public class Myshop implements Ishop {
         System.out.println("[x]종료");
         System.out.println("================================");
         System.out.print("선택 : ");
+
         input = sc.nextLine();
-        // if (input.equalsIgnoreCase("x")) {
-        // System.out.println("종료");
-        // System.exit(0);
-        // }
+
         switch (input) {
             case "x", "X":
                 System.exit(0);
@@ -66,16 +64,6 @@ public class Myshop implements Ishop {
                 start();
                 break;
         }
-        // num = Integer.parseInt(input);
-        // switch (num) {
-        // case 0, 1:
-        // productList();
-        // break;
-        // default:
-        // break;
-        // }
-        // 입력받은 값이 x인지 X인지 확인
-        // 아니면 정수로 변환하고 0, 1 확인
     }
 
     public void productList() {
@@ -99,16 +87,16 @@ public class Myshop implements Ishop {
         System.out.print("선택 :");
         input = sc.nextLine();
         switch (input) {
-            case "0", "1", "2", "3", "4": // 제품 담기 - 제품 목록
+            case "0", "1", "2", "3", "4": // 해당 번호에 해당하는 제품을 cart에 담고 제품 목록을 출력한다
                 num = Integer.parseInt(input);
                 cart[cartCount] = products[num];
                 cartCount++;
                 productList();
 
-            case "h": // 메인화면 출력
+            case "h":
                 start();
                 break;
-            case "c": // 체크아웃 출력
+            case "c":
                 checkOut(cart);
                 break;
 
@@ -117,39 +105,10 @@ public class Myshop implements Ishop {
         }
 
     }
-    // switch (input) {
-    // // 제품을 cart에 0번부터 담음
-    // case "0":
-    // case "1":
-    // case "2":
-    // case "3":
-    // case "4": // 제품 담기 - 제품 목록 마지막 제품을 무한으로 넣음
-    // for (int i = 0; i < cart.length; i++) {
-    // if (cart[i] == null) {
-    // cart[i] = products[Integer.parseInt(input)];
-    // break;
-    // }
 
-    // }
-    // System.out.println("제품을 담음");
-    // productList();
-    // break;
-
-    // case "h": // 메인화면 출력
-    // start();
-    // break;
-    // case "c": // 체크아웃 출력
-    // checkOut(cart);
-    // break;
-
-    // default:
-    // break;
-    // }
-
-    // checkout 출력
     public void checkOut(Product[] cart) {
         int sum = 0; // cart에 담긴 제품들의 총 가격
-        String input; // 사용자 입력값
+        String input;
 
         // 총합 계산
         for (int i = 0; i < cart.length; i++) {
@@ -158,10 +117,9 @@ public class Myshop implements Ishop {
             }
         }
 
+        // 체크아웃 화면 출력
         System.out.printf("%s - %s - 체크아웃\n", this.title, users[Integer.parseInt(userName)].getName());
         System.out.println("================================");
-
-        // 제품목록 출력
         int i = 0;
         for (Product product : cart) {
             if (cart[i] != null) {

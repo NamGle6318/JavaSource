@@ -35,3 +35,28 @@ java.lang 패키지
         -toLower&toUpperCase() : 대문자 - 소문자로 변경
         -trim() : 문자열의 시작과 끝부분의 공백을 없애줌
         -String.valueOf() : 매개변수의 타입을 전부 String 타입으로 변환해줌 / + 쓰는거랑 결과 같음
+
+3. StringBuilder, StringBuffer
+    - 문자열을 다루기 위한 클래스명
+    - 변경 가능한 클래스
+
+StringBuffer : 멀티스레드 지원
+StringBuilder : 단일스레드 지원, StringBuffer보다 빠름
+    -String과 다르게 .append()를 사용 가능
+    -일부 method가 String과 다름
+
+4. Math
+- 기본적인 수학 계산에 유용한 메서드를 보유
+- 모든 메서드가 static type, 상수만 존재
+    - Math.ceil() : 올림
+    - Math.floor() : 버림
+    - Math.round() : 반올림
+
+5. (wrapper) 클래스
+    - 기본형의 타입을 객체로 다루기 위한 클래스들
+    - 생성자가 없고, 선언을 굳이 안하고 바로 참조해도 됨 Integer.parseInt();
+    - int ==> Integer
+    - long ==> Long
+    - float ==> Float
+    - char ==> Character
+    - boolean ==> Boolean

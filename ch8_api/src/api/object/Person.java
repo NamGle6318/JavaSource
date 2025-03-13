@@ -26,4 +26,12 @@ public class Person {
         return "id : " + id + "\nname : " + name; // int 타입 value를 String 타입으로 변환 후 반환
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
 }

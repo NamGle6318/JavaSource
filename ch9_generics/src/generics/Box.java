@@ -1,7 +1,7 @@
 package generics;
 
 public class Box {
-
+    // Generic 미사용 Box 클래스
     Object item;
 
     public void setItem(Object item) {

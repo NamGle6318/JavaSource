@@ -1,6 +1,9 @@
 package generics;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 class Fruit {
     @Override
@@ -38,6 +41,10 @@ class Box3<T> {
         return list.get(i);
     }
 
+    public ArrayList<T> getList() {
+        return list;
+    }
+
     int size() {
         return list.size();
     }
@@ -58,6 +65,8 @@ class Toy {
 
 public class FruitBoxEx1 {
 
+    // Comparator<String> c;
+
     public static void main(String[] args) {
         Box3<Fruit> fruitBox = new Box3<>();
         Box3<Apple> appleBox = new Box3<>();
@@ -75,5 +84,10 @@ public class FruitBoxEx1 {
 
         toyBox.add(new Toy());
         grapeBox.add(new Grape());
+
+        // sort 대상 리스트, Comparator<? super Apple> c)
+        // <? super Apple> : Apple클래스와 그 부모인 Fruit, Objects클래스만 가능
+        List<Apple> list = new ArrayList<>();
+        Collections.sort(list, null);
     }
 }

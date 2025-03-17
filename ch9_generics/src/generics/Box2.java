@@ -1,7 +1,7 @@
 package generics;
 
 public class Box2<T> {
-
+    // Generic 사용 Box클래스
     T item; // Generics
 
     public void setItem(T item) {

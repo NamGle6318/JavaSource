@@ -97,10 +97,10 @@ class CourseEx {
         // registerCourseStudents(workerCourse); 학생 클래스만 허용
 
         // 학생 과정 이름 리스트
-        Course<Student> studentCourse = new Course("학생과정", 5);
+        Course<Student> StudentCourse = new Course("학생과정", 5);
         personCourse.add(new Student("홍길동6"));
-        registerCourse(studentCourse);
-        registerCourseStudents(studentCourse);
+        registerCourse(StudentCourse);
+        registerCourseStudents(StudentCourse);
         Course<HighStudent> highCourse = new Course("고등학생과정", 5);
         personCourse.add(new HighStudent("홍길동7"));
     }

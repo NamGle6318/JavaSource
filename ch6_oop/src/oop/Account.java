@@ -1,5 +1,17 @@
 package oop;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@ToString // ToString()
+@AllArgsConstructor // 멤버변수 전부 쓰는 생성자
+@NoArgsConstructor // default 생성자
+@Getter // Getter()
+@Setter // Setter()
+
 public class Account {
     // 은행 계좌
     // 속성 : 계좌번호(ano)(long), 이름(owner)(String), 잔액(balance)
@@ -24,33 +36,34 @@ public class Account {
         }
     }
 
-    public String getAno() {
-        return ano;
-    }
+    // 생성자, getter toString 주석
+    // public String getAno() {
+    // return ano;
+    // }
 
-    public String getOwner() {
-        return owner;
-    }
+    // public String getOwner() {
+    // return owner;
+    // }
 
-    public long getBalance() {
-        return balance;
-    }
+    // public long getBalance() {
+    // return balance;
+    // }
 
-    // 생성자(default, 멤버변수 3개다)
-    public Account(String ano, String owner, long balance) {
-        this.ano = ano;
-        this.owner = owner;
-        this.balance = balance;
-    }
+    // // 생성자(default, 멤버변수 3개다)
+    // public Account(String ano, String owner, long balance) {
+    // this.ano = ano;
+    // this.owner = owner;
+    // this.balance = balance;
+    // }
 
-    public Account() {
-    }
+    // public Account() {
+    // }
 
-    @Override // To-do : 이거 뭔지 검색
-    public String toString() {
-        return "계좌번호 : " + ano + "\n" + "계좌주 : " + owner + "\n" + "잔액 : " + balance;
-    }
+    // @Override // To-do : 이거 뭔지 검색
+    // public String toString() {
+    // return "계좌번호 : " + ano + "\n" + "계좌주 : " + owner + "\n" + "잔액 : " + balance;
+    // }
 
-    /////////////////////////////////////////////////
+    // /////////////////////////////////////////////////
 
 }

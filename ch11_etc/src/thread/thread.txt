@@ -3,5 +3,13 @@ Thread :
     - 쓰레드 : 하나의 프로세스 안에 하나 이상의 Thread 사용 
                실제 프로그램이 수행되는 최소 작업 단위
 멀티 쓰레드 작성 
- - Thread 클래스 사용
+ - Thread 클래스 상속 - 다른 클래스를 상속받지 못함
  - Runnable interface 사용 
+ 
+ start()
+ run()
+ join()
+ sleep(ms)
+ intarrupt()
+ synchronized : 경쟁조건 방지(중복 실행)
+ ExecutorService : 쓰레드 풀(쓰레드 재사용하여 자원 절약)

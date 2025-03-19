@@ -1,6 +1,6 @@
 package thread;
 
-public class SmallLetters implements Runnable {
+public class SmallLetters2 extends Thread {
 
     @Override
     // 소문자 a~z까지 출력

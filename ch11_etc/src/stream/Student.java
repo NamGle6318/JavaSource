@@ -1,4 +1,4 @@
-package ch11_etc.stream;
+package stream;
 
 public class Student {
     private String name;

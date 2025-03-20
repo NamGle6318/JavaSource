@@ -1,4 +1,4 @@
-package ch11_etc.stream;
+package stream;
 
 import java.util.ArrayList;
 import java.util.Arrays;

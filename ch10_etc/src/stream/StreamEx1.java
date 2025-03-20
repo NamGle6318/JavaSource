@@ -24,9 +24,5 @@ public class StreamEx1 {
         // stream.forEach(s -> System.out.println(s));
         // IllegalStateException: stream has already been operated upon or closed (스트림
         // 닫힘)
-
-        List<Student> students = Arrays.asList(
-                new Student("홍길동", 90),
-                new Student("신철용", 75));
     }
 }

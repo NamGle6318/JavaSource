@@ -8,6 +8,32 @@ Stream
             -- distinct : 중복제거
             -- map() : 스트림의 요소를 변환 
                 -- mapToInt() : R = int
+            -- skip() : 스트림의 일부를 잘라낼때 활용
+            -- limit : 스트림의 요소의 개수를 제한
+            -- peek : 중간연산 확인용 
         -- 최종처리
             -- forEach() 
-            -- collect()
+            -- collect() : 특정 collect에 해당하는(List,set 등)의 형태로 출력
+            -- count() / sum() / average() / max() / min()
+
+        -- 메서드 참조
+            -- 하나의 메소드만 호출하는 람다식 
+            -- (양식) 클래스이름::메서드이름 or 참조변수::메서드이름
+            --           System.out::println / String::toUpperCase
+
+-- Optional<T> : null 확인
+    -- 최종연산의 결과를 Optional 객체에 담아서 반환
+    -- 반환된 결과가 null 인지 매번 if 문으로 체크하는 대신 Optional 에 정의된
+       메서드를 통해서 간단히 처리할 수 있다.
+
+-- Optional 종류
+    -- Optional
+    -- OptionalDouble
+    -- OptionalInt ...
+
+-- Optional 의 메서드
+    -- Optional 객체 값 가져오기 : get() / getAsInt() / getAsDouble()
+    -- 널일때 반환값 지정 : orElse()
+    -- 널일때 false, 아닐때 true, 널일때 실행 : isPresent()
+    -- 널일때는 아무것도 안하고, 널이 아닐때 람다식 실행 : ifPresent(Consumer)
+

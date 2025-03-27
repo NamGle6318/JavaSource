@@ -1,9 +1,5 @@
 package emp;
 
-// INT    STR    STR  INT  Date      INT  INT   INT
-
-// EMPNO  ENAME  JOB  MGR  HIREDATE  SAL  COMM  DEPTNO
-
 import lombok.*;
 
 @Getter

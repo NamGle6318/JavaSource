@@ -1,5 +1,6 @@
 package emp;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class EmpMain {
@@ -16,8 +17,9 @@ public class EmpMain {
             System.out.println("1. 입력");
             System.out.println("2. 수정");
             System.out.println("3. 삭제");
-            System.out.println("4. 조회");
-            System.out.println("5. 종료");
+            System.out.println("4. 전체사원조회");
+            System.out.println("5. 특정사원조회");
+            System.out.println("6. 종료");
             System.out.println("======================");
             System.out.print("메뉴 >> ");
             int menu = Integer.parseInt(scanner.nextLine());
@@ -38,9 +40,16 @@ public class EmpMain {
                     result = dao.delete(empno);
                     System.out.println(result > 0 ? "삭제 성공" : "삭제 실패");
                     break;
-                case 4: // SELECT
+                case 4: // SELECT - 전체 사원 조회
+                    List<EmpDTO> list = dao.selectAll();
+                    empPrint(list);
                     break;
-                case 5: // 종료
+                case 5: // SELECT - 특정 사원 조회
+                    int empNo = getRow(scanner);
+                    dao.select(empNo);
+                    System.out.println(dto);
+                    break;
+                case 6: // 종료
                     run = false;
                     break;
                 default:
@@ -99,5 +108,23 @@ public class EmpMain {
                 .deptno(deptno)
                 .build();
         return dto;
+    }
+
+    // selectAll 출력
+    public static void empPrint(List<EmpDTO> list) {
+        System.out.println("=======================================================================================");
+        System.out.println("사번\t이름\t직무\t\t매니저번호\t입사일\t\t  급여\t수당\t부서번호");
+        for (EmpDTO dto : list) {
+            System.out.print(dto.getEmpno() + "\t" + dto.getEname() + "\t" + dto.getJob() + "\t" + dto.getMgr() + "\t"
+                    + dto.getHiredate() + "\t" + dto.getSal() + "\t" + dto.getComm() + "\t" + dto.getDeptno() + "\n");
+        }
+        System.out.println("=======================================================================================");
+    }
+
+    // select할 행의 값 입력 받기
+    public static int getRow(Scanner scanner) {
+        System.out.print(" 조회할 사원번호를 입력 : ");
+        int empNo = Integer.parseInt(scanner.nextLine());
+        return empNo;
     }
 }

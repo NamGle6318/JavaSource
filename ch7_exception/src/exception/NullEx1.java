@@ -4,9 +4,16 @@ public class NullEx1 {
     public static void main(String[] args) {
         // RuntimeException - NullPointerException
 
-        String[] str = new String[5];
+        String str = null;
 
         System.out.println(str);
-        System.out.println(str[0].length());
+        try {
+            System.out.println(str.length());
+
+        } catch (Exception e) {
+            System.out.println("실패");
+        }
+
+        System.out.println("실행");
     }
 }

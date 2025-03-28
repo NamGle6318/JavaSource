@@ -10,7 +10,7 @@ import lombok.*;
 @AllArgsConstructor
 
 public class MemberDTO {
-    private String id;
+    private String id; // primary key
     private String name;
     private String addr;
     private String email;

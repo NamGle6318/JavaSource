@@ -12,6 +12,7 @@ public class MemberMain {
         ConsoleUtil util = new ConsoleUtil();
         boolean run = true;
         int result = 0;
+        String id = " ";
 
         while (run) {
 
@@ -43,6 +44,8 @@ public class MemberMain {
                     // 출력문 호출
                     break;
                 case 3: // DELETE
+                    id = util.memberDeleteInfo(scanner);
+                    result = mDao.delete(id);
                     break;
                 case 4: // SELECT TO
                     break;

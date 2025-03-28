@@ -60,10 +60,10 @@ public class MemberDAO {
 
     // INSERT
     public int insert(MemberDTO memberDTO) {
-        String sql = "INSERT INTO MEMBER (ID, NAME, ADDR, EMAIL, AGE) VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO MEMBER (NO, ID, NAME, ADDR, EMAIL, AGE) VALUES (MEMBER_SEQ.NEXTVAL, ?,?,?,?,?)";
         int result = 0;
-        getConnection();
 
+        con = getConnection();
         try {
             pstmt = con.prepareStatement(sql);
 
@@ -81,15 +81,15 @@ public class MemberDAO {
         return result;
     }
 
-    // id를
+    // UPDATE
     public int update(MemberDTO memberDTO) {
         String sql = "UPDATE MEMBER ";
         // SET ADDR = ? WHERE ID = ?";
         int result = 0;
 
-        getConnection();
+        con = getConnection();
         try {
-            if (memberDTO.getAddr() != null) { // addr != null
+            if (memberDTO.getAddr() != null) {
                 sql += "SET ADDR = ? ";
                 sql += " WHERE ID = ?";
                 pstmt = con.prepareStatement(sql);
@@ -112,7 +112,22 @@ public class MemberDAO {
         return result;
     }
 
-    public int delete() {
+    // DELETE : 전달인자 - PK 사용함
+    public int delete(String id) {
+        String sql = "DELETE FROM MEMBER WHERE ID = ?";
+        int result = 0;
+
+        con = getConnection();
+        try {
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, id);
+            result = pstmt.executeUpdate();
+
+        } catch (Exception e) {
+
+        } finally {
+            close(con, pstmt);
+        }
 
         return 0;
     }

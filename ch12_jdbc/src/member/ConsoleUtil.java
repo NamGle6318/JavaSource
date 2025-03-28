@@ -71,4 +71,12 @@ public class ConsoleUtil {
 
         return mDto;
     }
+
+    public String memberDeleteInfo(Scanner scanner) {
+        System.out.println("==========================회원정보 삭제 화면============================");
+        System.out.print("삭제할 회원의 id :");
+        String id = scanner.nextLine();
+        System.out.println("==========================회원정보 삭제 완료============================");
+        return id;
+    }
 }

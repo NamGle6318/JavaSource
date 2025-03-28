@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import emp.EmpDTO;
 
@@ -12,7 +14,7 @@ public class MemberDAO {
     private Connection con;
     private PreparedStatement pstmt;
     private ResultSet rs;
-    private EmpDTO dto;
+    private MemberDTO dto;
 
     static {
 
@@ -114,7 +116,7 @@ public class MemberDAO {
 
     // DELETE : 전달인자 - PK 사용함
     public int delete(String id) {
-        String sql = "DELETE FROM MEMBER WHERE ID = ?";
+        String sql = "DELETE FROM MEMBER WHERE ID = ?;";
         int result = 0;
 
         con = getConnection();
@@ -133,8 +135,97 @@ public class MemberDAO {
     }
 
     // select : ~~DTO(where pk 지정) or List<~~~DTO
-    public void select() {
+    public MemberDTO getRow(String id) {
 
-        return;
+        MemberDTO dto = null; // 1
+        try {
+            con = getConnection();
+            String sql = "SELECT * FROM MEMBER WHERE ID = ?";
+            dto = new MemberDTO();
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, id);
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) { // rs.next를 해야 다음행으로 넘어갈 수 있음
+                // dto.builder ->
+                dto.builder() // builder 사용시
+                        .no((rs.getInt("no"))) // getInt
+                        .id(rs.getString("id"))
+                        .name(rs.getString("name"))
+                        .addr(rs.getString("addr"))
+                        .age((rs.getInt("age")))
+                        .build();
+            }
+
+            // if (rs.next()) {
+            // dto.setNo(Integer.parseInt(rs.getString("no")));
+            // dto.setId(rs.getString("id"));
+            // dto.setName(rs.getString("name"));
+            // dto.setAddr(rs.getString("addr"));
+            // dto.setEmail(rs.getString("email"));
+            // dto.setAge(Integer.parseInt(rs.getString("age")));
+            // }
+
+        } catch (Exception e) {
+        } finally {
+            close(con, pstmt, rs);
+        }
+
+        return dto;
+    }
+
+    public List<MemberDTO> getList() {
+        String sql = "SELECT * FROM MEMBER";
+        List<MemberDTO> list = new ArrayList<>();
+
+        try {
+            con = getConnection();
+
+            pstmt = con.prepareStatement(sql);
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                dto = new MemberDTO();
+                dto.setNo((rs.getInt("no")));
+                dto.setId(rs.getString("id"));
+                dto.setName(rs.getString("name"));
+                dto.setAddr(rs.getString("addr"));
+                dto.setEmail(rs.getString("email"));
+                dto.setAge((rs.getInt("age")));
+                list.add(dto);
+            }
+        } catch (Exception e) {
+        } finally {
+            close(con, pstmt, rs);
+        }
+        return list;
+    }
+
+    public List<MemberDTO> getNameList(String name) {
+        String sql = "SELECT * FROM MEMBER WHERE NAME LIKE '?'";
+        List<MemberDTO> list = new ArrayList<>();
+
+        try {
+            con = getConnection();
+
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, "%" + name + "%");
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                dto = new MemberDTO();
+                dto.setNo((rs.getInt("no")));
+                dto.setId(rs.getString("id"));
+                dto.setName(rs.getString("name"));
+                dto.setAddr(rs.getString("addr"));
+                dto.setEmail(rs.getString("email"));
+                dto.setAge((rs.getInt("age")));
+                list.add(dto);
+            }
+        } catch (Exception e) {
+        } finally {
+            close(con, pstmt, rs);
+        }
+        return list;
     }
 }

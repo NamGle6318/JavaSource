@@ -1,5 +1,6 @@
 package member;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class MemberMain {
@@ -13,6 +14,7 @@ public class MemberMain {
         boolean run = true;
         int result = 0;
         String id = " ";
+        List<MemberDTO> list = null;
 
         while (run) {
 
@@ -30,8 +32,8 @@ public class MemberMain {
 
             switch (menu) {
                 case 1: // INSERT
-                    MemberDTO dto = util.memberInsertInfo(scanner);
-                    result = mDao.insert(dto);
+                    mDto = util.memberInsertInfo(scanner);
+                    result = mDao.insert(mDto);
                     util.printInsertSuccessMessage(result);
 
                     break;
@@ -46,10 +48,30 @@ public class MemberMain {
                 case 3: // DELETE
                     id = util.memberDeleteInfo(scanner);
                     result = mDao.delete(id);
+                    util.printDeleteSuccessMessage(result, id);
                     break;
                 case 4: // SELECT TO
+                    String input = util.memberSelectInfo(scanner);
+
+                    // regex = 정규식 [a-z], [A-Z], [0-9], [^a-z]. [A-Za-z0-9]
+                    // input.matches(regex); 정규식에 해당하면 true를 반환
+
+                    // 아이디는 영어로 시작 => getRow
+                    if (input.matches("^[A-Za-z].*")) {
+                        mDto = mDao.getRow(input);
+
+                    } else { // 이름은 한글로 시작 => GetNameList()
+                        list = mDao.getNameList(input);
+                        if (!list.isEmpty()) {
+                            util.memberAllPrint(list);
+                        }
+                    }
+
+                    util.printSelectTo(mDto);
                     break;
                 case 5: // SELECT ALL
+                    list = mDao.getList();
+                    util.memberAllPrint(list);
                     break;
                 case 6: // EXIT
                     run = false;

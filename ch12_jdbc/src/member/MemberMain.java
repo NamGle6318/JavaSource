@@ -59,15 +59,22 @@ public class MemberMain {
                     // 아이디는 영어로 시작 => getRow
                     if (input.matches("^[A-Za-z].*")) {
                         mDto = mDao.getRow(input);
+                        if (mDto != null) {
+                            util.printSelectTo(mDto);
+                        } else {
+                            System.out.println("존재하지 않는 id입니다.");
+                        }
 
                     } else { // 이름은 한글로 시작 => GetNameList()
                         list = mDao.getNameList(input);
                         if (!list.isEmpty()) {
                             util.memberAllPrint(list);
+                            // util.printSelectTo(mDto);
+
+                        } else {
+                            System.out.println("존재하지 않는 id입니다.");
                         }
                     }
-
-                    util.printSelectTo(mDto);
                     break;
                 case 5: // SELECT ALL
                     list = mDao.getList();

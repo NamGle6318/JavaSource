@@ -136,19 +136,17 @@ public class MemberDAO {
 
     // select : ~~DTO(where pk 지정) or List<~~~DTO
     public MemberDTO getRow(String id) {
-
-        MemberDTO dto = null; // 1
         try {
             con = getConnection();
             String sql = "SELECT * FROM MEMBER WHERE ID = ?";
-            dto = new MemberDTO();
+            // dto = new MemberDTO();
             pstmt = con.prepareStatement(sql);
             pstmt.setString(1, id);
             rs = pstmt.executeQuery();
 
             if (rs.next()) { // rs.next를 해야 다음행으로 넘어갈 수 있음
                 // dto.builder ->
-                dto.builder() // builder 사용시
+                dto = MemberDTO.builder() // builder 사용시
                         .no((rs.getInt("no"))) // getInt
                         .id(rs.getString("id"))
                         .name(rs.getString("name"))
@@ -202,11 +200,11 @@ public class MemberDAO {
     }
 
     public List<MemberDTO> getNameList(String name) {
-        String sql = "SELECT * FROM MEMBER WHERE NAME LIKE '?'";
-        List<MemberDTO> list = new ArrayList<>();
 
+        List<MemberDTO> list = new ArrayList<>();
         try {
             con = getConnection();
+            String sql = "SELECT * FROM MEMBER WHERE NAME LIKE ?";
 
             pstmt = con.prepareStatement(sql);
             pstmt.setString(1, "%" + name + "%");
